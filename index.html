@@ -1,1109 +1,694 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Nama Anda — CCTV & Network Technician</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
-<style>
-/* ═══════════════════════════════════════
-   DESIGN TOKENS
-═══════════════════════════════════════ */
-:root {
-  --white:   #FFFFFF;
-  --bg:      #F7F6F3;
-  --bg2:     #F0EEE9;
-  --surface: #FFFFFF;
-  --border:  #E2E0DA;
-  --border2: #D0CEC8;
-  --ink:     #18181B;
-  --ink2:    #3A3A3F;
-  --muted:   #7A7870;
-  --muted2:  #ABAAA5;
-  --accent:  #1D3557;
-  --accent2: #2A4A78;
-  --gold:    #C5953A;
-  --gold-bg: rgba(197,149,58,0.08);
-  --gold-bd: rgba(197,149,58,0.22);
-  --font: 'Plus Jakarta Sans', system-ui, sans-serif;
-  --serif: 'Instrument Serif', Georgia, serif;
-  --ease: cubic-bezier(0.22, 1, 0.36, 1);
-  --radius: 4px;
-}
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Nataniel Pendong – Teknisi Jaringan & CCTV</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lucide/0.383.0/umd/lucide.min.js"></script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-/* ═══════════════════════════════════════
-   BASE
-═══════════════════════════════════════ */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
-body {
-  background: var(--bg);
-  color: var(--ink);
-  font-family: var(--font);
-  font-weight: 400;
-  line-height: 1.6;
-  overflow-x: hidden;
-  -webkit-font-smoothing: antialiased;
-}
-img { display: block; max-width: 100%; }
-a { color: inherit; text-decoration: none; }
-button { font-family: inherit; cursor: pointer; border: none; background: none; }
-input, textarea, select { font-family: inherit; }
-[contenteditable] { outline: none; cursor: text; }
-[contenteditable]:hover { text-decoration: underline; text-decoration-style: dashed; text-decoration-color: var(--border2); text-underline-offset: 3px; }
-[contenteditable]:focus { text-decoration: underline; text-decoration-style: solid; text-decoration-color: var(--accent); text-underline-offset: 3px; }
+    :root {
+      --bg: #0b0d10;
+      --surface: #111318;
+      --card: #161a21;
+      --border: #1e2330;
+      --accent: #00d4ff;
+      --accent2: #0097b2;
+      --text: #e8eaf0;
+      --muted: #6b7280;
+      --green: #22c55e;
+    }
 
-/* ═══════════════════════════════════════
-   NAV
-═══════════════════════════════════════ */
-nav {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 900;
-  height: 64px;
-  display: flex; align-items: center; justify-content: space-between;
-  padding: 0 5%;
-  background: rgba(255,255,255,0.92);
-  backdrop-filter: blur(16px);
-  border-bottom: 1px solid var(--border);
-}
-.nav-brand {
-  display: flex; align-items: center; gap: 10px;
-  font-size: 0.95rem; font-weight: 600; color: var(--ink);
-  letter-spacing: -0.2px;
-}
-.nav-pulse {
-  width: 7px; height: 7px; border-radius: 50%;
-  background: var(--gold); flex-shrink: 0;
-  animation: pulse 2s ease-in-out infinite;
-}
-@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.3} }
-.nav-links { display: flex; gap: 2rem; }
-.nav-links a {
-  font-size: 0.8rem; font-weight: 500;
-  letter-spacing: 0.5px; color: var(--muted);
-  transition: color .2s;
-}
-.nav-links a:hover { color: var(--ink); }
-.nav-cta {
-  display: inline-flex; align-items: center; gap: 6px;
-  background: var(--accent); color: #fff;
-  padding: 0.5rem 1.2rem; border-radius: var(--radius);
-  font-size: 0.8rem; font-weight: 600; letter-spacing: 0.3px;
-  transition: background .2s, transform .2s;
-}
-.nav-cta:hover { background: var(--accent2); transform: translateY(-1px); }
+    html { scroll-behavior: smooth; }
 
-/* ═══════════════════════════════════════
-   HERO
-═══════════════════════════════════════ */
-.hero {
-  display: grid; grid-template-columns: 1fr 1fr;
-  min-height: 100vh; padding-top: 64px;
-}
-.hero-left {
-  padding: 5rem 5% 5rem 5%;
-  display: flex; flex-direction: column; justify-content: center;
-  background: var(--white);
-  animation: fadeUp .8s var(--ease) both;
-}
-@keyframes fadeUp {
-  from { opacity:0; transform: translateY(28px); }
-  to   { opacity:1; transform: translateY(0); }
-}
-.hero-right {
-  background: var(--bg2);
-  border-left: 1px solid var(--border);
-  position: relative; overflow: hidden;
-  animation: fadeUp .8s .15s var(--ease) both;
-}
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
 
-/* availability badge */
-.avail-badge {
-  display: inline-flex; align-items: center; gap: 8px;
-  background: var(--gold-bg); border: 1px solid var(--gold-bd);
-  padding: 0.35rem 0.85rem; border-radius: 100px;
-  margin-bottom: 2rem; align-self: flex-start;
-}
-.avail-dot {
-  width: 5px; height: 5px; border-radius: 50%;
-  background: var(--gold); animation: pulse 1.8s infinite;
-}
-.avail-badge span {
-  font-size: 0.72rem; font-weight: 600; letter-spacing: 0.5px;
-  color: var(--gold); text-transform: uppercase;
-}
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 1.1rem 6vw;
+      background: rgba(11,13,16,.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800; font-size: 1.1rem;
+      color: var(--accent); letter-spacing: .04em;
+    }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a {
+      color: var(--muted); text-decoration: none; font-size: .9rem;
+      transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--accent); }
 
-/* heading */
-.hero-h {
-  font-family: var(--serif);
-  font-size: clamp(2.8rem, 5vw, 4.4rem);
-  font-weight: 400; line-height: 1.08;
-  letter-spacing: -0.5px; color: var(--ink);
-  margin-bottom: 1.4rem;
-}
-.hero-h em { font-style: italic; color: var(--accent); }
+    /* ── HERO ── */
+    #hero {
+      min-height: 100vh;
+      display: flex; flex-direction: column; justify-content: center;
+      padding: 8rem 6vw 5rem;
+      position: relative; overflow: hidden;
+    }
+    .hero-grid-bg {
+      position: absolute; inset: 0; z-index: 0;
+      background-image:
+        linear-gradient(var(--border) 1px, transparent 1px),
+        linear-gradient(90deg, var(--border) 1px, transparent 1px);
+      background-size: 48px 48px;
+      opacity: .35;
+    }
+    .hero-glow {
+      position: absolute; top: -120px; left: -80px; z-index: 0;
+      width: 500px; height: 500px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(0,212,255,.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-content { position: relative; z-index: 1; max-width: 760px; }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: .5rem;
+      background: rgba(0,212,255,.08); border: 1px solid rgba(0,212,255,.2);
+      color: var(--accent); border-radius: 999px;
+      font-size: .8rem; font-weight: 500; padding: .35rem .9rem;
+      margin-bottom: 1.6rem;
+      animation: fadeUp .6s ease both;
+    }
+    .hero-badge span.dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--green);
+      box-shadow: 0 0 6px var(--green);
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.4} }
+    @keyframes fadeUp {
+      from { opacity:0; transform:translateY(20px); }
+      to   { opacity:1; transform:translateY(0); }
+    }
 
-.hero-desc {
-  font-size: 0.97rem; color: var(--muted);
-  max-width: 380px; line-height: 1.8;
-  font-weight: 400; margin-bottom: 2.5rem;
-}
-.hero-desc strong { color: var(--ink); font-weight: 600; }
+    h1 {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(2.4rem, 6vw, 4.2rem);
+      font-weight: 800; line-height: 1.1;
+      margin-bottom: 1.2rem;
+      animation: fadeUp .7s .1s ease both;
+    }
+    h1 span { color: var(--accent); }
+    .hero-sub {
+      color: var(--muted); font-size: 1.05rem; max-width: 560px;
+      margin-bottom: 2.2rem;
+      animation: fadeUp .7s .2s ease both;
+    }
+    .hero-cta {
+      display: flex; gap: 1rem; flex-wrap: wrap;
+      animation: fadeUp .7s .3s ease both;
+    }
+    .btn-primary {
+      background: var(--accent); color: #000;
+      font-family: 'Syne', sans-serif; font-weight: 700;
+      padding: .75rem 1.8rem; border-radius: 6px;
+      text-decoration: none; font-size: .95rem;
+      transition: background .2s, transform .15s;
+    }
+    .btn-primary:hover { background: #33ddff; transform: translateY(-2px); }
+    .btn-outline {
+      border: 1px solid var(--border); color: var(--text);
+      padding: .75rem 1.8rem; border-radius: 6px;
+      text-decoration: none; font-size: .95rem;
+      transition: border-color .2s, transform .15s;
+    }
+    .btn-outline:hover { border-color: var(--accent); transform: translateY(-2px); }
 
-.hero-btns {
-  display: flex; gap: 0.75rem; flex-wrap: wrap; margin-bottom: 3rem;
-}
-.btn-primary {
-  display: inline-flex; align-items: center; gap: 7px;
-  background: var(--accent); color: #fff;
-  padding: 0.8rem 1.7rem; border-radius: var(--radius);
-  font-size: 0.85rem; font-weight: 600; letter-spacing: 0.2px;
-  transition: all .25s; border: 1px solid transparent;
-}
-.btn-primary:hover { background: var(--accent2); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(29,53,87,.2); }
-.btn-secondary {
-  display: inline-flex; align-items: center; gap: 7px;
-  background: transparent; color: var(--ink);
-  padding: 0.8rem 1.7rem; border-radius: var(--radius);
-  font-size: 0.85rem; font-weight: 500;
-  border: 1px solid var(--border2); transition: all .25s;
-}
-.btn-secondary:hover { border-color: var(--accent); color: var(--accent); }
+    .hero-stats {
+      display: flex; gap: 2.5rem; margin-top: 3.5rem;
+      animation: fadeUp .7s .45s ease both;
+    }
+    .stat-num {
+      font-family: 'Syne', sans-serif; font-size: 1.8rem; font-weight: 800;
+      color: var(--accent);
+    }
+    .stat-label { font-size: .8rem; color: var(--muted); margin-top: .1rem; }
 
-/* metrics strip */
-.hero-metrics {
-  display: flex; padding-top: 2rem;
-  border-top: 1px solid var(--border);
-}
-.hm { padding-right: 2.5rem; margin-right: 2.5rem; border-right: 1px solid var(--border); }
-.hm:last-child { border-right: none; }
-.hm-n {
-  font-family: var(--serif);
-  font-size: 2.2rem; color: var(--accent); line-height: 1; font-weight: 400;
-}
-.hm-l { font-size: 0.72rem; color: var(--muted2); letter-spacing: 0.5px; margin-top: 0.2rem; }
+    /* ── SECTIONS ── */
+    section { padding: 5rem 6vw; }
+    .section-label {
+      font-size: .75rem; font-weight: 600; letter-spacing: .12em;
+      text-transform: uppercase; color: var(--accent); margin-bottom: .6rem;
+    }
+    h2 {
+      font-family: 'Syne', sans-serif; font-weight: 800;
+      font-size: clamp(1.7rem, 3.5vw, 2.5rem); margin-bottom: 1rem;
+    }
+    .section-desc { color: var(--muted); max-width: 520px; margin-bottom: 3rem; }
 
-/* Hero photo area */
-.hero-photo-area {
-  width: 100%; height: 100%;
-  display: flex; flex-direction: column;
-  align-items: center; justify-content: center;
-  position: relative;
-}
-.hero-photo-area img.hero-img {
-  position: absolute; inset: 0;
-  width: 100%; height: 100%; object-fit: cover; display: none;
-}
-.hero-upload-ph {
-  display: flex; flex-direction: column;
-  align-items: center; justify-content: center;
-  gap: 1rem; padding: 2rem; text-align: center;
-  width: 100%; height: 100%; min-height: 400px;
-}
-.ph-circle {
-  width: 88px; height: 88px; border-radius: 50%;
-  background: var(--border); display: flex;
-  align-items: center; justify-content: center;
-}
-.hero-upload-ph p { font-size: 0.85rem; color: var(--muted2); }
-.btn-upload {
-  display: inline-flex; align-items: center; gap: 6px;
-  background: var(--white); color: var(--ink);
-  padding: 0.6rem 1.3rem; border-radius: var(--radius);
-  border: 1px solid var(--border2);
-  font-size: 0.78rem; font-weight: 600; letter-spacing: 0.3px;
-  transition: all .2s;
-}
-.btn-upload:hover { border-color: var(--accent); color: var(--accent); }
-.hero-badge-card {
-  position: absolute; bottom: 1.5rem; left: 1.5rem;
-  background: var(--white); border: 1px solid var(--border);
-  padding: 0.9rem 1.1rem;
-  box-shadow: 0 4px 20px rgba(0,0,0,.08);
-}
-.hbc-role { font-size: 0.68rem; font-weight: 600; color: var(--muted); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 0.2rem; }
-.hbc-name { font-family: var(--serif); font-size: 1.05rem; color: var(--ink); }
-.hbc-loc { font-size: 0.75rem; color: var(--muted); margin-top: 0.15rem; display: flex; align-items: center; gap: 5px; }
+    /* ── SERVICES ── */
+    #services { background: var(--surface); }
+    .services-grid {
+      display: grid; gap: 1.5rem;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    }
+    .service-card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 12px; padding: 1.8rem;
+      transition: border-color .2s, transform .2s;
+    }
+    .service-card:hover { border-color: var(--accent2); transform: translateY(-4px); }
+    .service-icon {
+      width: 44px; height: 44px; border-radius: 10px;
+      background: rgba(0,212,255,.1); border: 1px solid rgba(0,212,255,.2);
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 1rem;
+    }
+    .service-icon svg { width: 20px; height: 20px; stroke: var(--accent); stroke-width: 1.75; fill: none; }
+    .c-icon { display:flex; align-items:center; justify-content:center; }
+    .c-icon svg { width: 26px; height: 26px; stroke: var(--accent); stroke-width: 1.75; fill: none; }
+    .about-img-placeholder svg { width: 36px; height: 36px; stroke: var(--muted); stroke-width: 1.5; fill: none; }
+    .gallery-placeholder svg { width: 28px; height: 28px; stroke: var(--muted); stroke-width: 1.5; fill: none; }
+    .add-photo-btn svg { width: 28px; height: 28px; stroke: currentColor; stroke-width: 1.75; fill: none; }
+    #lightbox-close { display:flex; align-items:center; justify-content:center; }
+    #lightbox-close svg { width: 26px; height: 26px; stroke: #fff; stroke-width: 2; fill: none; }
+    .service-card h3 {
+      font-family: 'Syne', sans-serif; font-size: 1rem;
+      font-weight: 700; margin-bottom: .5rem;
+    }
+    .service-card p { color: var(--muted); font-size: .88rem; line-height: 1.6; }
 
-/* ═══════════════════════════════════════
-   SECTION COMMONS
-═══════════════════════════════════════ */
-.section { padding: 5.5rem 5%; position: relative; }
-.section-white { background: var(--white); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
-.section-bg { background: var(--bg); }
-.sec-eyebrow {
-  font-size: 0.7rem; font-weight: 700; letter-spacing: 1.5px;
-  text-transform: uppercase; color: var(--gold);
-  display: flex; align-items: center; gap: 8px; margin-bottom: 0.7rem;
-}
-.sec-eyebrow::before {
-  content: ''; display: block;
-  width: 20px; height: 1.5px; background: var(--gold);
-}
-.sec-title {
-  font-family: var(--serif);
-  font-size: clamp(1.8rem, 3vw, 2.6rem);
-  font-weight: 400; line-height: 1.1;
-  letter-spacing: -0.3px; margin-bottom: 0.75rem;
-}
-.sec-title em { font-style: italic; color: var(--accent); }
-.sec-desc { font-size: 0.92rem; color: var(--muted); max-width: 500px; line-height: 1.8; }
+    /* ── ABOUT ── */
+    #about .about-flex {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;
+    }
+    .about-img-wrap {
+      position: relative; border-radius: 14px; overflow: hidden;
+      border: 1px solid var(--border);
+    }
+    .about-img-wrap img {
+      width: 100%; height: 340px; object-fit: cover; display: block;
+      filter: grayscale(20%);
+    }
+    .about-img-placeholder {
+      width: 100%; height: 340px;
+      background: var(--card);
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      color: var(--muted); gap: .5rem; font-size: .88rem;
+    }
+    .about-img-placeholder .upload-icon { font-size: 2.5rem; }
+    .about-text h2 { margin-bottom: 1rem; }
+    .about-text p { color: var(--muted); margin-bottom: 1rem; font-size: .95rem; }
+    .tag-list { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: 1.2rem; }
+    .tag {
+      background: rgba(0,212,255,.07); border: 1px solid rgba(0,212,255,.15);
+      color: var(--accent); border-radius: 6px;
+      padding: .25rem .7rem; font-size: .78rem; font-weight: 500;
+    }
 
-/* ═══════════════════════════════════════
-   SERVICES
-═══════════════════════════════════════ */
-.svc-header { margin-bottom: 2.8rem; }
-.svc-grid {
-  display: grid; grid-template-columns: repeat(3,1fr);
-  border: 1px solid var(--border);
-  background: var(--border);
-  gap: 1px;
-}
-.svc-card {
-  background: var(--white);
-  padding: 2rem 1.8rem;
-  position: relative; transition: background .25s;
-}
-.svc-card:hover { background: #FAFAF8; }
-.svc-top {
-  display: flex; align-items: flex-start;
-  justify-content: space-between; margin-bottom: 1.2rem;
-}
-.svc-icon-wrap {
-  width: 42px; height: 42px;
-  background: var(--bg); border: 1px solid var(--border);
-  border-radius: var(--radius);
-  display: flex; align-items: center; justify-content: center;
-  flex-shrink: 0;
-}
-.svc-icon-wrap svg { color: var(--accent); }
-.svc-num { font-size: 0.68rem; font-weight: 600; color: var(--muted2); letter-spacing: 1px; }
-.svc-card h3 { font-size: 0.97rem; font-weight: 600; margin-bottom: 0.5rem; letter-spacing: -0.1px; }
-.svc-card p { font-size: 0.83rem; color: var(--muted); line-height: 1.7; }
-.svc-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 1.1rem; }
-.tag {
-  font-size: 0.65rem; font-weight: 600; letter-spacing: 0.5px;
-  color: var(--accent); background: rgba(29,53,87,0.06);
-  border: 1px solid rgba(29,53,87,0.12);
-  padding: 0.18rem 0.55rem; border-radius: 100px;
-}
+    /* ── GALLERY ── */
+    #gallery { background: var(--surface); }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+      gap: 1rem;
+    }
+    .gallery-item {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 10px; overflow: hidden;
+      aspect-ratio: 4/3;
+      position: relative; cursor: pointer;
+      transition: border-color .2s, transform .2s;
+    }
+    .gallery-item:hover { border-color: var(--accent2); transform: scale(1.02); }
+    .gallery-item img { width:100%; height:100%; object-fit:cover; display:block; }
+    .gallery-placeholder {
+      width:100%; height:100%;
+      display:flex; flex-direction:column; align-items:center; justify-content:center;
+      color: var(--muted); gap:.4rem; font-size:.82rem;
+    }
+    .gallery-placeholder .up-icon { font-size:1.8rem; }
+    .add-photo-btn {
+      background: var(--card); border: 2px dashed var(--border);
+      border-radius: 10px; overflow:hidden; aspect-ratio:4/3;
+      display:flex; flex-direction:column; align-items:center; justify-content:center;
+      color: var(--muted); gap:.5rem; font-size:.85rem;
+      cursor:pointer; transition: border-color .2s, color .2s;
+    }
+    .add-photo-btn:hover { border-color: var(--accent); color: var(--accent); }
+    .add-photo-btn .plus { font-size:2rem; }
+    #photo-upload { display:none; }
 
-/* ═══════════════════════════════════════
-   PORTFOLIO
-═══════════════════════════════════════ */
-.port-hdr {
-  display: flex; align-items: flex-end;
-  justify-content: space-between; flex-wrap: wrap;
-  gap: 1rem; margin-bottom: 2rem;
-}
-.gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px,1fr)); gap: 6px; }
-.g-item {
-  position: relative; aspect-ratio: 4/3;
-  overflow: hidden; background: var(--bg2);
-  cursor: zoom-in;
-}
-.g-item img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s var(--ease), filter .4s; filter: saturate(.9); }
-.g-item:hover img { transform: scale(1.05); filter: saturate(1); }
-.g-overlay {
-  position: absolute; inset: 0;
-  background: linear-gradient(to top, rgba(18,18,23,.55) 0%, transparent 50%);
-  opacity: 0; transition: opacity .3s;
-  display: flex; align-items: flex-end; padding: 0.9rem;
-}
-.g-item:hover .g-overlay { opacity: 1; }
-.g-lbl {
-  font-size: 0.68rem; font-weight: 600; letter-spacing: 0.8px;
-  text-transform: uppercase; color: #fff;
-  background: rgba(18,18,23,.7); padding: 0.2rem 0.6rem;
-}
-.upload-zone {
-  aspect-ratio: 4/3; border: 1.5px dashed var(--border2);
-  background: var(--white);
-  display: flex; flex-direction: column;
-  align-items: center; justify-content: center;
-  gap: 0.7rem; cursor: pointer; transition: all .2s; padding: 1.5rem; text-align: center;
-}
-.upload-zone:hover, .upload-zone.over { border-color: var(--accent); background: rgba(29,53,87,.03); }
-.upload-zone p { font-size: 0.8rem; color: var(--muted2); line-height: 1.5; }
+    /* Gallery lightbox */
+    #lightbox {
+      display:none; position:fixed; inset:0; z-index:200;
+      background:rgba(0,0,0,.9); align-items:center; justify-content:center;
+    }
+    #lightbox.active { display:flex; }
+    #lightbox img { max-width:90vw; max-height:90vh; border-radius:8px; }
+    #lightbox-close {
+      position:absolute; top:1.5rem; right:2rem;
+      font-size:2rem; color:#fff; cursor:pointer; background:none; border:none;
+    }
 
-/* ═══════════════════════════════════════
-   EXPERIENCE
-═══════════════════════════════════════ */
-.exp-layout {
-  display: grid; grid-template-columns: 280px 1fr;
-  gap: 5rem; margin-top: 3rem;
-}
-.exp-sidebar {}
-.exp-sidebar p { font-size: 0.88rem; color: var(--muted); line-height: 1.8; margin-bottom: 1rem; }
-.exp-sidebar strong { color: var(--ink); font-weight: 600; }
-.exp-hl { display: flex; flex-direction: column; gap: 0.5rem; margin-top: 1.2rem; }
-.exp-hl-item {
-  display: flex; align-items: flex-start; gap: 8px;
-  font-size: 0.82rem; color: var(--muted);
-}
-.exp-hl-item::before {
-  content: ''; display: block; flex-shrink: 0;
-  width: 5px; height: 5px; border-radius: 50%;
-  background: var(--gold); margin-top: 7px;
-}
+    /* ── CONTACT ── */
+    #contact { text-align: center; }
+    #contact h2 { margin-bottom: .8rem; }
+    #contact p { color: var(--muted); margin-bottom: 2.5rem; }
+    .contact-cards {
+      display: flex; gap: 1.5rem; flex-wrap: wrap; justify-content: center;
+    }
+    .contact-card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 12px; padding: 1.5rem 2rem;
+      display: flex; flex-direction: column; align-items: center; gap: .5rem;
+      text-decoration: none; color: var(--text);
+      min-width: 180px;
+      transition: border-color .2s, transform .2s;
+    }
+    .contact-card:hover { border-color: var(--accent); transform: translateY(-3px); }
+    .contact-card .c-icon { font-size: 1.8rem; }
+    .contact-card .c-label { font-size: .78rem; color: var(--muted); }
+    .contact-card .c-val { font-weight: 600; font-size: .92rem; }
 
-/* Timeline */
-.timeline { position: relative; padding-left: 28px; }
-.timeline::before {
-  content: ''; position: absolute;
-  left: 0; top: 6px; bottom: 0;
-  width: 1px; background: var(--border);
-}
-.exp-entry { position: relative; margin-bottom: 2.5rem; }
-.exp-entry:last-child { margin-bottom: 0; }
-.exp-entry::before {
-  content: ''; position: absolute;
-  left: -32px; top: 6px;
-  width: 8px; height: 8px; border-radius: 50%;
-  background: var(--white); border: 2px solid var(--border2);
-  transition: border-color .2s, background .2s;
-}
-.exp-entry:hover::before { border-color: var(--accent); background: var(--accent); }
+    /* ── FOOTER ── */
+    footer {
+      padding: 2rem 6vw; border-top: 1px solid var(--border);
+      display: flex; justify-content: space-between; align-items: center;
+      flex-wrap: wrap; gap: 1rem;
+      color: var(--muted); font-size: .82rem;
+    }
+    footer a { color: var(--accent); text-decoration: none; }
 
-.exp-card {
-  background: var(--white); border: 1px solid var(--border);
-  padding: 1.8rem; transition: border-color .25s, box-shadow .25s;
-}
-.exp-card:hover {
-  border-color: var(--border2);
-  box-shadow: 0 4px 24px rgba(0,0,0,.06);
-}
-.exp-card-head {
-  display: flex; align-items: flex-start;
-  justify-content: space-between; gap: 1rem; margin-bottom: 1rem; flex-wrap: wrap;
-}
-.exp-left { display: flex; align-items: center; gap: 0.9rem; }
+    /* ── EXPERIENCE ── */
+    #experience { background: var(--bg); }
+    .exp-list { display: flex; flex-direction: column; gap: 1.5rem; max-width: 820px; }
+    .exp-card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 14px; padding: 1.8rem 2rem;
+      display: grid; grid-template-columns: auto 1fr; gap: 0 1.6rem;
+      align-items: start;
+      transition: border-color .2s, transform .2s;
+      position: relative; overflow: hidden;
+    }
+    .exp-card::before {
+      content: ''; position: absolute; left: 0; top: 0; bottom: 0;
+      width: 3px; background: var(--accent);
+      opacity: 0; transition: opacity .2s;
+    }
+    .exp-card:hover { border-color: var(--accent2); transform: translateX(4px); }
+    .exp-card:hover::before { opacity: 1; }
+    .exp-logo {
+      width: 48px; height: 48px; border-radius: 10px;
+      background: rgba(0,212,255,.08); border: 1px solid rgba(0,212,255,.15);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; margin-top: .2rem;
+    }
+    .exp-logo svg { width: 22px; height: 22px; stroke: var(--accent); stroke-width: 1.75; fill: none; }
+    .exp-body {}
+    .exp-top {
+      display: flex; align-items: flex-start; justify-content: space-between;
+      flex-wrap: wrap; gap: .4rem; margin-bottom: .35rem;
+    }
+    .exp-company {
+      font-family: 'Syne', sans-serif; font-weight: 700;
+      font-size: 1rem; color: var(--text);
+    }
+    .exp-period {
+      font-size: .78rem; color: var(--muted);
+      background: rgba(255,255,255,.04); border: 1px solid var(--border);
+      border-radius: 999px; padding: .2rem .75rem;
+      white-space: nowrap;
+    }
+    .exp-role {
+      font-size: .88rem; color: var(--accent); font-weight: 500;
+      margin-bottom: .7rem;
+    }
+    .exp-tasks { list-style: none; display: flex; flex-direction: column; gap: .4rem; }
+    .exp-tasks li {
+      font-size: .87rem; color: var(--muted); padding-left: 1.1rem;
+      position: relative;
+    }
+    .exp-tasks li::before {
+      content: ''; position: absolute; left: 0; top: .55em;
+      width: 5px; height: 5px; border-radius: 50%;
+      background: var(--accent); opacity: .6;
+    }
+    .exp-tags { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: .9rem; }
+    .exp-tag {
+      font-size: .72rem; font-weight: 500;
+      background: rgba(0,212,255,.06); border: 1px solid rgba(0,212,255,.12);
+      color: var(--accent); border-radius: 5px; padding: .18rem .6rem;
+    }
+    .exp-status-badge {
+      display: inline-flex; align-items: center; gap: .35rem;
+      font-size: .72rem; color: var(--green); font-weight: 500;
+    }
+    .exp-status-badge .dot-green {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--green); box-shadow: 0 0 5px var(--green);
+    }
 
-/* Logo upload box */
-.exp-logo {
-  width: 44px; height: 44px; flex-shrink: 0;
-  border: 1px solid var(--border); background: var(--bg);
-  display: flex; align-items: center; justify-content: center;
-  overflow: hidden; position: relative; cursor: pointer;
-  transition: border-color .2s; font-size: 0.62rem;
-  color: var(--muted2); font-weight: 600; letter-spacing: 0.5px;
-  text-align: center;
-}
-.exp-logo:hover { border-color: var(--accent); }
-.exp-logo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: none; }
-.exp-logo input { display: none; }
-
-.exp-company { font-size: 0.97rem; font-weight: 700; letter-spacing: -0.1px; margin-bottom: 0.18rem; }
-.exp-role { font-size: 0.82rem; color: var(--muted); font-weight: 400; }
-.exp-period {
-  font-size: 0.7rem; font-weight: 600;
-  letter-spacing: 0.5px; color: var(--muted);
-  background: var(--bg2); border: 1px solid var(--border);
-  padding: 0.25rem 0.65rem; white-space: nowrap; height: fit-content;
-}
-
-.exp-desc { font-size: 0.87rem; color: var(--muted); line-height: 1.78; margin-bottom: 1.2rem; }
-
-/* exp photo strips */
-.exp-photos { display: flex; gap: 6px; flex-wrap: wrap; }
-.exp-photo {
-  width: 96px; height: 66px; flex-shrink: 0;
-  border: 1px solid var(--border); background: var(--bg2);
-  overflow: hidden; position: relative; cursor: pointer;
-  display: flex; align-items: center; justify-content: center;
-  transition: border-color .2s;
-}
-.exp-photo:hover { border-color: var(--accent); }
-.exp-photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: none; }
-.exp-photo input { display: none; }
-.exp-photo-ph {
-  display: flex; flex-direction: column;
-  align-items: center; justify-content: center; gap: 3px;
-  font-size: 0.58rem; font-weight: 600; letter-spacing: 0.5px;
-  color: var(--muted2); text-transform: uppercase; text-align: center;
-}
-
-.exp-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 1rem; }
-
-/* Add/remove controls */
-.exp-footer {
-  display: flex; justify-content: space-between; align-items: center;
-  margin-top: 2.5rem; padding-top: 2rem; border-top: 1px solid var(--border);
-}
-.btn-add {
-  display: inline-flex; align-items: center; gap: 7px;
-  border: 1px solid var(--border2); color: var(--ink);
-  background: var(--white);
-  padding: 0.65rem 1.3rem; border-radius: var(--radius);
-  font-size: 0.8rem; font-weight: 600; letter-spacing: 0.2px;
-  transition: all .2s;
-}
-.btn-add:hover { border-color: var(--accent); color: var(--accent); }
-.btn-remove {
-  font-size: 0.75rem; color: var(--muted2); letter-spacing: 0.3px;
-  transition: color .2s; padding: 0.5rem;
-  display: inline-flex; align-items: center; gap: 5px;
-}
-.btn-remove:hover { color: #C0392B; }
-.edit-hint {
-  font-size: 0.72rem; color: var(--muted2);
-  background: var(--bg2); border: 1px solid var(--border);
-  padding: 0.45rem 0.9rem; margin-bottom: 2rem;
-  display: inline-flex; align-items: center; gap: 6px;
-}
-
-/* ═══════════════════════════════════════
-   ABOUT
-═══════════════════════════════════════ */
-.about-grid {
-  display: grid; grid-template-columns: 1fr 1.5fr;
-  gap: 5rem; align-items: center;
-}
-.about-photo-frame {
-  position: relative;
-  border: 1px solid var(--border);
-  aspect-ratio: 4/5; overflow: hidden;
-  background: var(--bg2);
-}
-.about-photo-frame img { width: 100%; height: 100%; object-fit: cover; display: none; }
-.about-photo-frame .upload-ph {
-  position: absolute; inset: 0;
-  display: flex; flex-direction: column;
-  align-items: center; justify-content: center;
-  gap: 0.9rem; padding: 2rem; text-align: center;
-}
-.about-photo-frame .upload-ph p { font-size: 0.8rem; color: var(--muted2); }
-.about-photo-deco {
-  position: absolute; bottom: -10px; right: -10px; left: 10px; top: 10px;
-  border: 1px solid var(--border); z-index: -1;
-}
-.about-text p {
-  font-size: 0.92rem; color: var(--muted);
-  line-height: 1.82; margin-bottom: 1rem; font-weight: 400;
-}
-.about-text p strong { color: var(--ink); font-weight: 600; }
-.skills-wrap { margin-top: 2rem; }
-.skills-lbl {
-  font-size: 0.7rem; font-weight: 700; letter-spacing: 1.5px;
-  text-transform: uppercase; color: var(--muted2); margin-bottom: 1rem;
-}
-.skill-list { display: flex; flex-direction: column; gap: 0.8rem; }
-.sk {}
-.sk-head {
-  display: flex; justify-content: space-between;
-  font-size: 0.8rem; font-weight: 500; margin-bottom: 0.4rem;
-}
-.sk-pct { font-size: 0.75rem; color: var(--muted2); font-weight: 400; }
-.sk-track { height: 3px; background: var(--border); }
-.sk-fill {
-  height: 100%; background: var(--accent);
-  transform: scaleX(0); transform-origin: left;
-  transition: transform 1.1s var(--ease);
-}
-.sk-fill.go { transform: scaleX(1); }
-
-/* ═══════════════════════════════════════
-   CONTACT
-═══════════════════════════════════════ */
-.contact-grid {
-  display: grid; grid-template-columns: 1fr 1fr;
-  gap: 5rem; margin-top: 3rem;
-}
-.c-intro p { font-size: 0.9rem; color: var(--muted); line-height: 1.82; margin-bottom: 2rem; }
-.c-list { display: flex; flex-direction: column; gap: 0.55rem; }
-.c-row {
-  display: flex; align-items: center; gap: 1rem;
-  padding: 0.9rem 1.1rem; background: var(--white);
-  border: 1px solid var(--border);
-  text-decoration: none; color: var(--ink);
-  transition: border-color .2s, box-shadow .2s;
-}
-.c-row:hover { border-color: var(--border2); box-shadow: 0 2px 12px rgba(0,0,0,.05); }
-.c-row-icon {
-  width: 36px; height: 36px; flex-shrink: 0;
-  background: var(--bg); border: 1px solid var(--border);
-  border-radius: var(--radius);
-  display: flex; align-items: center; justify-content: center;
-}
-.c-row-icon svg { color: var(--accent); }
-.c-lbl { font-size: 0.65rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--muted2); }
-.c-val { font-size: 0.87rem; font-weight: 500; margin-top: 0.1rem; }
-
-/* Form */
-.cform { display: flex; flex-direction: column; gap: 1rem; }
-.fg { display: flex; flex-direction: column; gap: 0.35rem; }
-.fg label { font-size: 0.7rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--muted); }
-.fg input, .fg textarea, .fg select {
-  background: var(--white); border: 1px solid var(--border);
-  color: var(--ink); padding: 0.75rem 0.9rem;
-  font-size: 0.88rem; width: 100%;
-  transition: border-color .2s; -webkit-appearance: none;
-}
-.fg input:focus, .fg textarea:focus, .fg select:focus {
-  outline: none; border-color: var(--accent);
-}
-.fg textarea { resize: vertical; min-height: 100px; }
-.fg select option { background: #fff; }
-.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
-
-/* ═══════════════════════════════════════
-   FOOTER
-═══════════════════════════════════════ */
-footer {
-  background: var(--ink); color: rgba(255,255,255,.5);
-  padding: 2.5rem 5%;
-  display: flex; align-items: center;
-  justify-content: space-between; flex-wrap: wrap; gap: 1rem;
-}
-.f-brand { font-family: var(--serif); font-size: 1rem; color: #fff; font-weight: 400; }
-footer p { font-size: 0.78rem; }
-
-/* ═══════════════════════════════════════
-   WA FLOAT
-═══════════════════════════════════════ */
-.wa-float {
-  position: fixed; bottom: 2rem; right: 2rem; z-index: 800;
-  width: 50px; height: 50px; border-radius: 50%;
-  background: #25D366; color: #fff;
-  display: flex; align-items: center; justify-content: center;
-  box-shadow: 0 4px 20px rgba(37,211,102,.35);
-  transition: transform .25s, box-shadow .25s;
-}
-.wa-float:hover { transform: translateY(-3px) scale(1.06); box-shadow: 0 8px 28px rgba(37,211,102,.4); }
-
-/* ═══════════════════════════════════════
-   LIGHTBOX
-═══════════════════════════════════════ */
-.lb {
-  display: none; position: fixed; inset: 0;
-  background: rgba(0,0,0,.88); z-index: 1000;
-  align-items: center; justify-content: center; padding: 2rem;
-}
-.lb.on { display: flex; }
-.lb-inner { position: relative; max-width: 90vw; max-height: 85vh; }
-.lb-inner img { max-width: 88vw; max-height: 82vh; display: block; }
-.lb-x {
-  position: absolute; top: -12px; right: -12px;
-  width: 28px; height: 28px; border-radius: 50%;
-  background: var(--ink); color: #fff; border: none;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 0.85rem; font-weight: 700; cursor: pointer;
-}
-
-/* ═══════════════════════════════════════
-   SCROLL REVEAL
-═══════════════════════════════════════ */
-.rev { opacity:0; transform:translateY(20px); transition: opacity .65s var(--ease), transform .65s var(--ease); }
-.rev.in { opacity:1; transform:translateY(0); }
-.d1 { transition-delay:.1s; }
-.d2 { transition-delay:.2s; }
-.d3 { transition-delay:.3s; }
-.d4 { transition-delay:.4s; }
-
-/* ═══════════════════════════════════════
-   RESPONSIVE
-═══════════════════════════════════════ */
-@media (max-width: 1024px) { .svc-grid { grid-template-columns: 1fr 1fr; } }
-@media (max-width: 860px) {
-  .hero { grid-template-columns: 1fr; min-height: auto; }
-  .hero-right { height: 60vw; min-height: 300px; border-left: none; border-top: 1px solid var(--border); }
-  .hero-left { padding: 3rem 5%; }
-  .exp-layout { grid-template-columns: 1fr; gap: 2rem; }
-  .about-grid { grid-template-columns: 1fr; }
-  .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
-  .svc-grid { grid-template-columns: 1fr; }
-  .nav-links { display: none; }
-  .section { padding: 4rem 5%; }
-  .form-row { grid-template-columns: 1fr; }
-}
-</style>
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      #about .about-flex { grid-template-columns: 1fr; }
+      .hero-stats { gap: 1.5rem; }
+      nav .nav-links { display:none; }
+    }
+  </style>
 </head>
 <body>
 
-<!-- ────────── NAV ────────── -->
+<!-- NAV -->
 <nav>
-  <div class="nav-brand">
-    <div class="nav-pulse"></div>
-    <span id="navName">Nama Anda</span>
-  </div>
-  <div class="nav-links">
-    <a href="#layanan">Layanan</a>
-    <a href="#portofolio">Portfolio</a>
-    <a href="#pengalaman">Pengalaman</a>
-    <a href="#tentang">Tentang</a>
-    <a href="#kontak">Kontak</a>
-  </div>
-  <a href="#kontak" class="nav-cta">
-    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-    Konsultasi Gratis
-  </a>
+  <div class="nav-logo">⟨ Secure Visions /⟩</div>
+  <ul class="nav-links">
+    <li><a href="#services">Layanan</a></li>
+    <li><a href="#about">Tentang</a></li>
+    <li><a href="#experience">Pengalaman</a></li>
+    <li><a href="#gallery">Portofolio</a></li>
+    <li><a href="#contact">Kontak</a></li>
+  </ul>
 </nav>
 
-<!-- ────────── HERO ────────── -->
-<section class="hero">
-  <div class="hero-left">
-    <div class="avail-badge">
-      <div class="avail-dot"></div>
-      <span>Tersedia untuk Proyek Baru</span>
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-grid-bg"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-content">
+    <div class="hero-badge">
+      <span class="dot"></span>
+      Tersedia untuk proyek baru
     </div>
-    <h1 class="hero-h">
-      CCTV &amp; Network<br><em>Technician</em>
-    </h1>
-    <p class="hero-desc">
-      <strong>Mahasiswa aktif, teknisi berpengalaman.</strong> Spesialis instalasi sistem keamanan CCTV, konfigurasi jaringan, dan solusi IT terpercaya untuk rumah &amp; bisnis Anda di Manado.
+    <h1>Teknisi <span>Jaringan</span><br>& CCTV Profesional</h1>
+    <p class="hero-sub">
+      Mahasiswa aktif dengan pengalaman nyata di lapangan. Spesialis instalasi CCTV,
+      konfigurasi jaringan, dan keamanan sistem — hasil kerja rapi, tepat waktu.
     </p>
-    <div class="hero-btns">
-      <a href="https://wa.me/62XXXXXXXXXX" class="btn-primary" target="_blank">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-        WhatsApp Sekarang
-      </a>
-      <a href="#portofolio" class="btn-secondary">
-        Lihat Portfolio
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-      </a>
+    <div class="hero-cta">
+      <a href="#contact" class="btn-primary">Hubungi Saya</a>
+      <a href="#gallery" class="btn-outline">Lihat Portofolio</a>
     </div>
-    <div class="hero-metrics">
-      <div class="hm"><div class="hm-n">50+</div><div class="hm-l">Proyek Selesai</div></div>
-      <div class="hm"><div class="hm-n">3+</div><div class="hm-l">Tahun Pengalaman</div></div>
-      <div class="hm"><div class="hm-n">100%</div><div class="hm-l">Client Satisfied</div></div>
-    </div>
-  </div>
-
-  <div class="hero-right">
-    <div class="hero-photo-area">
-      <div class="hero-upload-ph" id="heroPh">
-        <div class="ph-circle">
-          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#ABAAA5" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-        </div>
-        <p>Upload foto profil Anda</p>
-        <button class="btn-upload" onclick="document.getElementById('heroIn').click()">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="16 16 12 12 8 16"/><line x1="12" y1="12" x2="12" y2="21"/><path d="M20.39 18.39A5 5 0 0 0 18 9h-1.26A8 8 0 1 0 3 16.3"/></svg>
-          Upload Foto
-        </button>
-        <input type="file" id="heroIn" accept="image/*" style="display:none" onchange="loadHero(event)">
+    <div class="hero-stats">
+      <div>
+        <div class="stat-num" id="stat-projects">10+</div>
+        <div class="stat-label">Proyek Selesai</div>
       </div>
-      <img class="hero-img" id="heroImg" src="" alt="Profil">
-      <div class="hero-badge-card">
-        <div class="hbc-role">CCTV &amp; Network Tech</div>
-        <div class="hbc-name" id="badgeName">Nama Anda</div>
-        <div class="hbc-loc">
-          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-          Manado, Sulawesi Utara
-        </div>
+      <div>
+        <div class="stat-num">2+</div>
+        <div class="stat-label">Tahun Pengalaman</div>
+      </div>
+      <div>
+        <div class="stat-num">100%</div>
+        <div class="stat-label">Kepuasan Klien</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ────────── LAYANAN ────────── -->
-<section class="section section-bg" id="layanan">
-  <div class="svc-header rev">
-    <div class="sec-eyebrow">Layanan</div>
-    <h2 class="sec-title">Apa yang Saya <em>Tawarkan</em></h2>
-    <p class="sec-desc">Solusi keamanan &amp; jaringan yang handal — profesional, tepat waktu, dan bergaransi.</p>
-  </div>
-  <div class="svc-grid">
-
-    <div class="svc-card rev">
-      <div class="svc-top">
-        <div class="svc-icon-wrap">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
-        </div>
-        <span class="svc-num">01</span>
-      </div>
+<!-- SERVICES -->
+<section id="services">
+  <div class="section-label">Apa yang saya kerjakan</div>
+  <h2>Layanan Unggulan</h2>
+  <p class="section-desc">Solusi lengkap untuk keamanan dan infrastruktur jaringan Anda — dari pemasangan hingga maintenance.</p>
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="service-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg></div>
       <h3>Instalasi CCTV</h3>
-      <p>Pemasangan kamera indoor &amp; outdoor resolusi HD/4K. Setup DVR/NVR lengkap, kabling rapi, siap pakai.</p>
-      <div class="svc-tags"><span class="tag">Analog</span><span class="tag">IP Camera</span><span class="tag">4K/HD</span></div>
+      <p>Pemasangan kamera CCTV indoor & outdoor, termasuk DVR/NVR, dan konfigurasi akses remote.</p>
     </div>
-
-    <div class="svc-card rev d1">
-      <div class="svc-top">
-        <div class="svc-icon-wrap">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
-        </div>
-        <span class="svc-num">02</span>
-      </div>
-      <h3>Jaringan &amp; WiFi</h3>
-      <p>Konfigurasi LAN, WiFi mesh, router &amp; access point. Setting Mikrotik, Cisco, TP-Link untuk koneksi stabil.</p>
-      <div class="svc-tags"><span class="tag">Mikrotik</span><span class="tag">WiFi Mesh</span><span class="tag">LAN</span></div>
+    <div class="service-card">
+      <div class="service-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
+      <h3>Jaringan LAN / WiFi</h3>
+      <p>Pemasangan kabel UTP, konfigurasi switch, router, dan access point untuk kantor, ruko, maupun rumah.</p>
     </div>
-
-    <div class="svc-card rev d2">
-      <div class="svc-top">
-        <div class="svc-icon-wrap">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
-        </div>
-        <span class="svc-num">03</span>
-      </div>
-      <h3>Remote Monitoring</h3>
-      <p>Akses CCTV dari smartphone atau PC di mana saja. Setup cloud storage dan notifikasi gerakan otomatis.</p>
-      <div class="svc-tags"><span class="tag">Android</span><span class="tag">iOS</span><span class="tag">Cloud</span></div>
+    <div class="service-card">
+      <div class="service-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div>
+      <h3>Maintenance & Troubleshoot</h3>
+      <p>Perawatan berkala sistem CCTV dan jaringan yang sudah terpasang agar tetap berjalan optimal.</p>
     </div>
-
-    <div class="svc-card rev">
-      <div class="svc-top">
-        <div class="svc-icon-wrap">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
-        </div>
-        <span class="svc-num">04</span>
-      </div>
-      <h3>Maintenance &amp; Servis</h3>
-      <p>Perbaikan sistem CCTV &amp; jaringan, penggantian komponen, update firmware, dan perawatan berkala.</p>
-      <div class="svc-tags"><span class="tag">Fast Response</span><span class="tag">Bergaransi</span></div>
+    <div class="service-card">
+      <div class="service-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
+      <h3>Konfigurasi Remote Monitoring</h3>
+      <p>Setup akses CCTV dari smartphone atau PC menggunakan aplikasi seperti iCSee, XMEye, dan sejenisnya.</p>
     </div>
-
-    <div class="svc-card rev d1">
-      <div class="svc-top">
-        <div class="svc-icon-wrap">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-        </div>
-        <span class="svc-num">05</span>
-      </div>
-      <h3>Network Security</h3>
-      <p>Implementasi keamanan jaringan: firewall setup, VLAN, isolasi perangkat, dan perlindungan akses tidak sah.</p>
-      <div class="svc-tags"><span class="tag">Firewall</span><span class="tag">VLAN</span><span class="tag">VPN</span></div>
+    <div class="service-card">
+      <div class="service-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 12.55a11 11 0 0 1 14.08 0M1.42 9a16 16 0 0 1 21.16 0M8.53 16.11a6 6 0 0 1 6.95 0M12 20h.01"/></svg></div>
+      <h3>Point-to-Point Wireless</h3>
+      <p>Instalasi jaringan wireless jarak jauh menggunakan perangkat Ubiquiti, TP-Link CPE, dan lainnya.</p>
     </div>
-
-    <div class="svc-card rev d2">
-      <div class="svc-top">
-        <div class="svc-icon-wrap">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
-        </div>
-        <span class="svc-num">06</span>
-      </div>
-      <h3>Konsultasi Gratis</h3>
-      <p>Konsultasi awal gratis untuk menentukan solusi terbaik sesuai kebutuhan dan budget. Survei lokasi tersedia.</p>
-      <div class="svc-tags"><span class="tag">Gratis</span><span class="tag">Survei Lokasi</span></div>
-    </div>
-
-  </div>
-</section>
-
-<!-- ────────── PORTFOLIO ────────── -->
-<section class="section section-white" id="portofolio">
-  <div class="port-hdr rev">
-    <div>
-      <div class="sec-eyebrow">Portfolio</div>
-      <h2 class="sec-title">Dokumentasi <em>Pekerjaan</em></h2>
-    </div>
-    <button class="btn-secondary" onclick="document.getElementById('galIn').click()">
-      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-      Tambah Foto
-    </button>
-    <input type="file" id="galIn" accept="image/*" multiple style="display:none" onchange="addGal(event)">
-  </div>
-  <div class="gallery" id="galGrid">
-    <div class="upload-zone" id="galZone"
-         onclick="document.getElementById('galIn').click()"
-         ondragover="event.preventDefault();this.classList.add('over')"
-         ondragleave="this.classList.remove('over')"
-         ondrop="dropGal(event)">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ABAAA5" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-      <p><strong style="color:var(--ink2);font-weight:600">Klik atau drag foto</strong><br>untuk upload ke galeri</p>
+    <div class="service-card">
+      <div class="service-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+      <h3>Keamanan Jaringan Dasar</h3>
+      <p>Konfigurasi firewall dasar, VLAN, dan segmentasi jaringan untuk meningkatkan keamanan sistem Anda.</p>
     </div>
   </div>
 </section>
 
-<!-- ────────── EXPERIENCE ────────── -->
-<section class="section section-bg" id="pengalaman">
-  <div class="rev">
-    <div class="sec-eyebrow">Pengalaman Kerja</div>
-    <h2 class="sec-title">Perusahaan yang Pernah<br><em>Saya Tangani</em></h2>
-  </div>
-
-  <div class="exp-layout">
-    <div class="exp-sidebar rev">
-      <p>Selama perjalanan karir saya sebagai teknisi, saya telah bekerja dan berkolaborasi dengan berbagai perusahaan — dari proyek residensial kecil hingga instalasi skala enterprise.</p>
-      <p>Setiap proyek memperkuat pemahaman saya tentang <strong>keandalan sistem, manajemen kabel, dan kepuasan klien.</strong></p>
-      <div class="exp-hl">
-        <div class="exp-hl-item">Instalasi CCTV multi-kamera</div>
-        <div class="exp-hl-item">Konfigurasi jaringan enterprise</div>
-        <div class="exp-hl-item">Troubleshooting &amp; maintenance</div>
-        <div class="exp-hl-item">Remote monitoring &amp; cloud setup</div>
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-flex">
+    <div class="about-img-wrap" id="about-img-container">
+      <!-- Ganti src dengan foto Anda, atau biarkan placeholder -->
+      <img src="pp.jpeg" alt="Foto Profil">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+        <span>Ganti dengan foto Anda</span>
+        <small style="font-size:.75rem;color:#4b5563;">Edit file HTML — tag &lt;img&gt; di sini</small>
       </div>
+      <!--
+        Untuk menambahkan foto Anda, hapus div placeholder di atas
+        dan uncomment baris di bawah, ganti path foto:
+
+        <img src="foto-saya.jpg" alt="Foto Profil">
+      -->
     </div>
-
-    <div>
-      <div class="edit-hint rev">
-        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-        Klik teks untuk mengedit · Klik kotak logo &amp; foto untuk upload gambar
-      </div>
-
-      <div class="timeline" id="expTimeline"></div>
-
-      <div class="exp-footer rev">
-        <button class="btn-add" onclick="addExp()">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-          Tambah Pengalaman
-        </button>
-        <button class="btn-remove" onclick="removeExp()">
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/></svg>
-          Hapus Terakhir
-        </button>
+    <div class="about-text">
+      <div class="section-label">Tentang Saya</div>
+      <h2>Mahasiswa.<br>Praktisi. Problem Solver.</h2>
+      <p>
+        Halo! Saya adalah mahasiswa aktif yang juga berprofesi sebagai teknisi jaringan CCTV.
+        Saya menggabungkan ilmu yang dipelajari di kampus dengan pengalaman langsung di lapangan
+        untuk memberikan solusi teknis yang andal dan efisien.
+      </p>
+      <p>
+        Saya percaya bahwa sistem keamanan dan jaringan yang baik adalah fondasi penting bagi
+        bisnis maupun hunian modern. Setiap pekerjaan saya kerjakan dengan serius, rapi, dan
+        berorientasi pada kepuasan pelanggan.
+      </p>
+      <div class="tag-list">
+        <span class="tag">CCTV Analog & IP</span>
+        <span class="tag">Crimping & Cabling</span>
+        <span class="tag">Windows Server</span>
+        <span class="tag">Linux Dasar</span>
+        <span class="tag">Fiber Optic</span>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ────────── ABOUT ────────── -->
-<section class="section section-white" id="tentang">
-  <div class="about-grid">
-    <div class="about-photo-frame rev">
-      <div class="upload-ph" id="aboutPh">
-        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#ABAAA5" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-        <p>Upload foto Anda</p>
-        <button class="btn-upload" onclick="document.getElementById('aboutIn').click()">
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="16 16 12 12 8 16"/><line x1="12" y1="12" x2="12" y2="21"/><path d="M20.39 18.39A5 5 0 0 0 18 9h-1.26A8 8 0 1 0 3 16.3"/></svg>
-          Upload
-        </button>
-        <input type="file" id="aboutIn" accept="image/*" style="display:none" onchange="loadAbout(event)">
-      </div>
-      <img id="aboutImg" src="" alt="About">
-      <div class="about-photo-deco"></div>
-    </div>
-    <div class="about-text rev d1">
-      <div class="sec-eyebrow">Tentang Saya</div>
-      <h2 class="sec-title">Siapa <em>Saya?</em></h2>
-      <p>Halo! Saya <strong>[Nama Anda]</strong> — mahasiswa aktif di bidang Teknik Informatika sekaligus teknisi CCTV &amp; jaringan yang berpengalaman di Manado, Sulawesi Utara.</p>
-      <p>Perpaduan antara pendidikan formal dan pengalaman lapangan membuat saya mampu memberikan solusi yang tidak hanya bekerja secara teknis, tetapi juga tepat guna untuk klien.</p>
-      <p>Saya berkomitmen pada <strong>kualitas kerja, harga transparan, dan layanan purna jual yang responsif.</strong></p>
-      <div class="skills-wrap">
-        <div class="skills-lbl">Technical Skills</div>
-        <div class="skill-list">
-          <div class="sk"><div class="sk-head">IP Camera &amp; CCTV <span class="sk-pct">92%</span></div><div class="sk-track"><div class="sk-fill" data-w=".92"></div></div></div>
-          <div class="sk"><div class="sk-head">DVR / NVR Systems <span class="sk-pct">95%</span></div><div class="sk-track"><div class="sk-fill" data-w=".95"></div></div></div>
-          <div class="sk"><div class="sk-head">Mikrotik / Router <span class="sk-pct">82%</span></div><div class="sk-track"><div class="sk-fill" data-w=".82"></div></div></div>
-          <div class="sk"><div class="sk-head">WiFi &amp; LAN <span class="sk-pct">88%</span></div><div class="sk-track"><div class="sk-fill" data-w=".88"></div></div></div>
-          <div class="sk"><div class="sk-head">Fiber Optic <span class="sk-pct">75%</span></div><div class="sk-track"><div class="sk-fill" data-w=".75"></div></div></div>
-        </div>
+<!-- GALLERY / PORTFOLIO -->
+<section id="gallery">
+  <div class="section-label">Hasil Kerja Saya</div>
+  <h2>Portofolio</h2>
+  <p class="section-desc">Dokumentasi proyek nyata yang telah saya kerjakan. Klik foto untuk memperbesar.</p>
+
+  <div class="gallery-grid" id="gallery-grid">
+
+    <!-- Contoh item — hapus dan ganti dengan foto asli Anda -->
+    <div class="gallery-item">
+      <div class="gallery-placeholder">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg>
+        <span>Proyek CCTV 1</span>
+        <small style="font-size:.7rem">Ganti dengan &lt;img src="..."&gt;</small>
       </div>
     </div>
+    <div class="gallery-item">
+      <div class="gallery-placeholder">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        <span>Instalasi Jaringan</span>
+        <small style="font-size:.7rem">Ganti dengan &lt;img src="..."&gt;</small>
+      </div>
+    </div>
+    <div class="gallery-item">
+      <div class="gallery-placeholder">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+        <span>Setup NVR/DVR</span>
+        <small style="font-size:.7rem">Ganti dengan &lt;img src="..."&gt;</small>
+      </div>
+    </div>
+
+    <!-- Tombol tambah foto (berfungsi saat dibuka di browser lokal) -->
+    <label class="add-photo-btn" for="photo-upload">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v8M8 12h8"/></svg>
+      <span>Tambah Foto</span>
+      <small style="font-size:.72rem;color:#4b5563;text-align:center">Klik untuk upload<br>(sesi ini saja)</small>
+    </label>
+    <input type="file" id="photo-upload" accept="image/*" multiple>
   </div>
 </section>
 
-<!-- ────────── KONTAK ────────── -->
-<section class="section section-bg" id="kontak">
-  <div class="rev">
-    <div class="sec-eyebrow">Kontak</div>
-    <h2 class="sec-title">Mari <em>Berdiskusi</em></h2>
-    <p class="sec-desc">Konsultasi awal gratis. Ceritakan kebutuhan Anda dan saya akan berikan solusi terbaik.</p>
-  </div>
-  <div class="contact-grid">
-    <div class="c-intro rev d1">
-      <p>Hubungi saya langsung via WhatsApp untuk respons tercepat, atau isi form untuk mendapatkan estimasi biaya proyek.</p>
-      <div class="c-list">
-        <a href="https://wa.me/62XXXXXXXXXX" class="c-row" target="_blank">
-          <div class="c-row-icon">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-label">Riwayat Karir</div>
+  <h2>Pengalaman Kerja</h2>
+  <p class="section-desc">Perjalanan profesional saya di berbagai perusahaan dan proyek nyata di lapangan.</p>
+
+  <div class="exp-list">
+
+    <!-- 1 — Pekerjaan saat ini -->
+    <div class="exp-card">
+      <div class="exp-logo">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      </div>
+      <div class="exp-body">
+        <div class="exp-top">
+          <div>
+            <div class="exp-company">PT. WINWINSOLUTION</div>
+            <div class="exp-role">Junior Network Technician</div>
           </div>
-          <div><div class="c-lbl">WhatsApp</div><div class="c-val">+62 XXX-XXXX-XXXX</div></div>
-        </a>
-        <a href="mailto:email@anda.com" class="c-row">
-          <div class="c-row-icon">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          <div style="display:flex;flex-direction:column;align-items:flex-end;gap:.4rem">
+            <span class="exp-period">Jan 2025 – Sekarang</span>
+            <span class="exp-status-badge"><span class="dot-green"></span>Aktif</span>
           </div>
-          <div><div class="c-lbl">Email</div><div class="c-val">email@anda.com</div></div>
-        </a>
-        <div class="c-row">
-          <div class="c-row-icon">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-          </div>
-          <div><div class="c-lbl">Lokasi</div><div class="c-val">Manado, Sulawesi Utara</div></div>
         </div>
-        <div class="c-row">
-          <div class="c-row-icon">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-          </div>
-          <div><div class="c-lbl">Jam Operasional</div><div class="c-val">Senin – Sabtu, 08.00 – 20.00 WITA</div></div>
+        <ul class="exp-tasks">
+          <li>Instalasi dan konfigurasi sistem CCTV IP Camera untuk 10+ klien di wilayah Manado.</li>
+   
+        </ul>
+        <div class="exp-tags">
+          <span class="exp-tag">IP Camera</span>
+          <span class="exp-tag">Structured Cabling</span>
         </div>
       </div>
     </div>
-    <form class="cform rev d2" onsubmit="sendWA(event)">
-      <div class="form-row">
-        <div class="fg"><label>Nama Lengkap</label><input type="text" placeholder="Nama Anda" required></div>
-        <div class="fg"><label>WhatsApp</label><input type="tel" placeholder="+62 8XX-XXXX" required></div>
+
+    <!-- 2 -->
+    <div class="exp-card">
+      <div class="exp-logo">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>
       </div>
-      <div class="fg">
-        <label>Jenis Layanan</label>
-        <select required>
-          <option value="">— Pilih layanan —</option>
-          <option>Instalasi CCTV</option>
-          <option>Konfigurasi Jaringan / WiFi</option>
-          <option>Remote Monitoring Setup</option>
-          <option>Maintenance &amp; Servis</option>
-          <option>Network Security</option>
-          <option>Konsultasi</option>
-        </select>
+      <div class="exp-body">
+        <div class="exp-top">
+          <div>
+            <div class="exp-company">PT. IKA TEKNO JAYA</div>
+            <div class="exp-role">Teknisi Jaringan & CCTV</div>
+          </div>
+          <span class="exp-period">Jun 2025 – Sekarang</span>
+        </div>
+        <ul class="exp-tasks">
+          <li>Melakukan pemasangan infrastruktur jaringan</li>
+          <li>Konfigurasi VLAN</li>
+          <li>Setup remote monitoring CCTV</li>
+        </ul>
+        <div class="exp-tags">
+          <span class="exp-tag">VLAN</span>
+          <span class="exp-tag">Bandwidth Management</span>
+          <span class="exp-tag">Remote CCTV</span>
+          <span class="exp-tag">Structured Cabling</span>
+        </div>
       </div>
-      <div class="fg">
-        <label>Pesan</label>
-        <textarea placeholder="Ceritakan kebutuhan Anda — jenis tempat, jumlah kamera, area, dll..." required></textarea>
+    </div>
+
+    <!-- 3 -->
+    <div class="exp-card">
+      <div class="exp-logo">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg>
       </div>
-      <button type="submit" class="btn-primary" style="justify-content:center">
-        Kirim via WhatsApp
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-      </button>
-    </form>
+      <div class="exp-body">
+        <div class="exp-top">
+          <div>
+            <div class="exp-company">Freelance / Proyek mandiri</div>
+            <div class="exp-role">Teknisi Lapangan (Part-time)</div>
+          </div>
+          <span class="exp-period">Agu 2022 – Mei 2023</span>
+        </div>
+        <ul class="exp-tasks">
+          <li>Pemasangan kamera CCTV analog dan IP untuk toko, warung, dan hunian pribadi.</li>
+          <li>Konfigurasi DVR/NVR dan pelatihan penggunaan dasar kepada pelanggan.</li>
+          <li>Perbaikan dan penggantian kabel serta komponen CCTV yang rusak.</li>
+        </ul>
+        <div class="exp-tags">
+          <span class="exp-tag">CCTV Analog</span>
+          <span class="exp-tag">DVR Setup</span>
+          <span class="exp-tag">Crimping</span>
+          <span class="exp-tag">Customer Training</span>
+        </div>
+      </div>
+    </div>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-label">Mulai Proyek Anda</div>
+  <h2>Hubungi Saya</h2>
+  <p>Konsultasi gratis. Estimasi harga transparan. Siap melayani area Manado & sekitarnya.</p>
+  <div class="contact-cards">
+    <a class="contact-card" href="https://wa.me/6289504211494" target="_blank">
+      <span class="c-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span>
+      <span class="c-label">WhatsApp</span>
+      <span class="c-val">+62 895-0421-1494</span>
+    </a>
+    <a class="contact-card" href="/cdn-cgi/l/pendongnatan2@gmail.com">
+      <span class="c-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></span>
+      <span class="c-label">Email</span>
+      <span class="c-val"><span class="__cf_email__" data-cfemail="33565e525a5f7358525e461d505c5e">[email&#160;protected]</span></span>
+    </a>
+    <a class="contact-card" href="https://instagram.com/@n.yupiii_" target="_blank">
+      <span class="c-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></span>
+      <span class="c-label">Instagram</span>
+      <span class="c-val">@Secure Visions</span>
+    </a>
+    <a class="contact-card" href="https://github.com/username" target="_blank">
+      <span class="c-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg></span>
+      <span class="c-label">GitHub</span>
+      <span class="c-val">github.com/yupiii-hub</span>
+    </a>
   </div>
 </section>
 
 <!-- FOOTER -->
 <footer>
-  <div class="f-brand" id="footerName">Nama Anda</div>
-  <p>© 2025 · CCTV &amp; Network Technician · Manado, Sulawesi Utara</p>
-  <p>Built for GitHub Pages</p>
+  <span>© 2025 <strong style="color:var(--text)">Nataniel Yehuda Pendong</strong>. Dibuat dengan <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" style="width:14px;height:14px;display:inline-block;vertical-align:middle;fill:#00d4ff;stroke:none"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></span>
+  <span>Manado, Sulawesi Utara · Teknisi Jaringan & CCTV</span>
 </footer>
 
-<!-- WA Float -->
-<a href="https://wa.me/62XXXXXXXXXX" class="wa-float" target="_blank" title="Chat WhatsApp">
-  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-</a>
-
-<!-- Lightbox -->
-<div class="lb" id="lb" onclick="closeLb()">
-  <div class="lb-inner" onclick="event.stopPropagation()">
-    <button class="lb-x" onclick="closeLb()">✕</button>
-    <img id="lbImg" src="" alt="">
-  </div>
+<!-- LIGHTBOX -->
+<div id="lightbox">
+  <button id="lightbox-close"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+  <img id="lightbox-img" src="" alt="">
 </div>
 
-<!-- ═══════════════════ SCRIPT ═══════════════════ -->
-<script>
-/* ── helpers ── */
-function loadHero(e){
-  const f=e.target.files[0]; if(!f) return;
-  const img=document.getElementById('heroImg');
-  img.src=URL.createObjectURL(f); img.style.display='block';
-  document.getElementById('heroPh').style.display='none';
-}
-function loadAbout(e){
-  const f=e.target.files[0]; if(!f) return;
-  const img=document.getElementById('aboutImg');
-  img.src=URL.createObjectURL(f); img.style.display='block';
-  document.getElementById('aboutPh').style.display='none';
-}
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  // ── Upload foto ke gallery (untuk preview lokal) ──
+  const input = document.getElementById('photo-upload');
+  const grid  = document.getElementById('gallery-grid');
 
-/* ── gallery ── */
-const GL=['Instalasi CCTV','IP Camera Setup','Kabel Management','DVR Config','Outdoor Camera','NVR System','WiFi Setup','Network Rack','Panel Server','Remote Access'];
-let gc=0;
-function mkGI(url){
-  const l=GL[gc%GL.length]; gc++;
-  const d=document.createElement('div'); d.className='g-item';
-  const u=url.replace(/'/g,"\\'");
-  d.innerHTML=`<img src="${url}" alt="${l}"><div class="g-overlay"><span class="g-lbl">${l}</span></div>`;
-  d.querySelector('img').onclick=()=>openLb(url);
-  return d;
-}
-function addGal(e){
-  const g=document.getElementById('galGrid'),z=document.getElementById('galZone');
-  Array.from(e.target.files).forEach(f=>g.insertBefore(mkGI(URL.createObjectURL(f)),z));
-  e.target.value='';
-}
-function dropGal(e){
-  e.preventDefault(); document.getElementById('galZone').classList.remove('over');
-  const g=document.getElementById('galGrid'),z=document.getElementById('galZone');
-  Array.from(e.dataTransfer.files).filter(f=>f.type.startsWith('image/')).forEach(f=>g.insertBefore(mkGI(URL.createObjectURL(f)),z));
-}
+  input.addEventListener('change', (e) => {
+    Array.from(e.target.files).forEach(file => {
+      const url = URL.createObjectURL(file);
+      const addBtn = grid.querySelector('.add-photo-btn').parentElement
+        ? grid.querySelector('label.add-photo-btn')
+        : null;
 
-/* ── lightbox ── */
-function openLb(src){document.getElementById('lbImg').src=src;document.getElementById('lb').classList.add('on');}
-function closeLb(){document.getElementById('lb').classList.remove('on');}
-document.addEventListener('keydown',e=>{if(e.key==='Escape')closeLb();});
+      const item = document.createElement('div');
+      item.className = 'gallery-item';
+      const img = document.createElement('img');
+      img.src = url;
+      item.appendChild(img);
+      item.addEventListener('click', () => openLightbox(url));
+      grid.insertBefore(item, addBtn || null);
+    });
+  });
 
-/* ── experience builder ── */
-let ec=0;
-const EXPS=[
-  {company:'PT. Securindo Nusantara',role:'Teknisi CCTV & Jaringan',period:'2023 – Sekarang',desc:'Bertanggung jawab atas instalasi dan konfigurasi sistem CCTV IP untuk gedung perkantoran dan pusat perbelanjaan. Mengelola lebih dari 20 proyek instalasi dengan total 200+ kamera terpasang.',tags:['IP Camera','NVR','Cloud CCTV','LAN']},
-  {company:'CV. Mitra Teknologi Sulut',role:'Network Technician',period:'2022 – 2023',desc:'Setup infrastruktur jaringan untuk klien korporat dan UMKM. Konfigurasi Mikrotik RB series, instalasi WiFi mesh, dan setup VPN untuk koneksi antar cabang.',tags:['Mikrotik','WiFi Mesh','VPN','TP-Link']},
-  {company:'Freelance / Proyek Mandiri',role:'CCTV & IT Technician',period:'2021 – Sekarang',desc:'Melayani instalasi CCTV dan konfigurasi jaringan untuk rumah tinggal, toko retail, dan kafe di wilayah Manado. Konsultasi, pemasangan, hingga after-sales support.',tags:['CCTV Rumahan','WiFi Setup','Konsultasi','After-Sales']},
-];
+  // ── Lightbox ──
+  const lightbox = document.getElementById('lightbox');
+  const lbImg    = document.getElementById('lightbox-img');
+  document.getElementById('lightbox-close').onclick = () => lightbox.classList.remove('active');
+  lightbox.addEventListener('click', e => { if(e.target===lightbox) lightbox.classList.remove('active'); });
+  function openLightbox(src){ lbImg.src = src; lightbox.classList.add('active'); }
 
-function mkExp(d){
-  const id='ex'+ec++;
-  const photos=[0,1,2].map(i=>{
-    const pid=id+'p'+i, inp=id+'pi'+i, img=id+'im'+i;
-    return `<div class="exp-photo" id="${pid}" onclick="document.getElementById('${inp}').click()" title="Upload foto">
-      <div class="exp-photo-ph">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-        <span>Foto</span>
-      </div>
-      <img id="${img}" src="" alt="">
-      <input type="file" id="${inp}" accept="image/*" onchange="loadEPh('${inp}','${img}','${pid}')">
-    </div>`;
-  }).join('');
-  const tags=d.tags.map(t=>`<span class="tag">${t}</span>`).join('');
-  const logoId=id+'l', logoImg=id+'li', logoIn=id+'lin';
-  const el=document.createElement('div');
-  el.className='exp-entry rev'; el.id=id;
-  el.innerHTML=`<div class="exp-card">
-    <div class="exp-card-head">
-      <div class="exp-left">
-        <div class="exp-logo" onclick="document.getElementById('${logoIn}').click()" title="Upload logo">
-          <span style="font-size:.58rem;font-weight:600;color:var(--muted2);letter-spacing:.5px">LOGO</span>
-          <img id="${logoImg}" src="" alt="">
-          <input type="file" id="${logoIn}" accept="image/*" onchange="loadELogo('${logoIn}','${logoImg}')">
-        </div>
-        <div>
-          <div class="exp-company" contenteditable spellcheck="false">${d.company}</div>
-          <div class="exp-role" contenteditable spellcheck="false">${d.role}</div>
-        </div>
-      </div>
-      <div class="exp-period" contenteditable spellcheck="false">${d.period}</div>
-    </div>
-    <p class="exp-desc" contenteditable spellcheck="false">${d.desc}</p>
-    <div class="exp-photos">${photos}</div>
-    <div class="exp-tags">${tags}</div>
-  </div>`;
-  return el;
-}
-function loadEPh(inp,img,wrap){
-  const f=document.getElementById(inp).files[0]; if(!f) return;
-  const u=URL.createObjectURL(f);
-  const i=document.getElementById(img); i.src=u; i.style.display='block';
-  const ph=document.getElementById(wrap).querySelector('.exp-photo-ph');
-  if(ph) ph.style.display='none';
-}
-function loadELogo(inp,img){
-  const f=document.getElementById(inp).files[0]; if(!f) return;
-  const i=document.getElementById(img); i.src=URL.createObjectURL(f); i.style.display='block';
-  const p=i.closest('.exp-logo').querySelector('span');
-  if(p) p.style.display='none';
-}
-function addExp(data){
-  const el=mkExp(data||{company:'Nama Perusahaan',role:'Jabatan Anda',period:'Tahun – Tahun',desc:'Klik untuk mengedit deskripsi pekerjaan Anda di sini.',tags:['Tag 1','Tag 2']});
-  document.getElementById('expTimeline').appendChild(el);
-  requestAnimationFrame(()=>requestAnimationFrame(()=>el.classList.add('in')));
-  observe();
-}
-function removeExp(){
-  const tl=document.getElementById('expTimeline');
-  if(tl.lastElementChild) tl.removeChild(tl.lastElementChild);
-}
-EXPS.forEach(d=>addExp(d));
-
-/* ── scroll reveal ── */
-function observe(){
-  const ro=new IntersectionObserver(en=>{en.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in');});},{threshold:.08});
-  document.querySelectorAll('.rev:not(.in)').forEach(e=>ro.observe(e));
-}
-observe();
-
-/* ── skill bars ── */
-const so=new IntersectionObserver(en=>{
-  en.forEach(e=>{if(e.isIntersecting)e.target.querySelectorAll('.sk-fill').forEach(b=>{b.style.width=(parseFloat(b.dataset.w)*100)+'%';b.classList.add('go');});});
-},{threshold:.2});
-document.querySelectorAll('.about-grid').forEach(e=>so.observe(e));
-
-/* ── wa form ── */
-function sendWA(e){
-  e.preventDefault();
-  const f=e.target;
-  const nama=f.querySelector('input[type=text]').value;
-  const lay=f.querySelector('select').value;
-  const msg=f.querySelector('textarea').value;
-  const wa='62XXXXXXXXXX'; // ← GANTI NOMOR WA
-  window.open(`https://wa.me/${wa}?text=${encodeURIComponent(`Halo! Saya *${nama}* ingin konsultasi.\n*Layanan:* ${lay}\n\n${msg}`)}`,'_blank');
-}
-</script>
-</body>
-</html>
+  // Lightbox untuk placeholder (hanya untu
